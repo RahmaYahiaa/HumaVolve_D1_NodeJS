@@ -1,11 +1,13 @@
 import express from 'express';
 import studentsRouter from './routes/students.js';
+import studentsFileRouter from "./routes/studentsFile.js";
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 app.use('/students', studentsRouter);
+app.use('/students-file', studentsFileRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
